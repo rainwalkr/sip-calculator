@@ -1,13 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Figtree", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+
+  --body-text-color: black;
+  --color-primary: #277C64;
+  --color-primary-light: #BDEADD;
+  --color-grey-light: #e3e3e3;
+
+  --fnt-sz-sm: .8rem;
+  --fnt-sz-base: 1rem;
+  --fnt-sz-lg: 1.125rem;
+  --fnt-sz-xl: 1.25rem;
+
+  --fnt-wght-semibold: 600;
 }
 
-*, *::before, *::after {
+@media screen and (max-width: 700px) {
+  :root {
+    --fnt-sz-base: .95rem;
+    --fnt-sz-lg: 1rem;
+    --fnt-sz-xl: 1.125rem;
+  }
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -17,21 +44,42 @@
 
 body {
   line-height: 1.5;
+  height: 100%;
+  color: var(--body-text-color);
+  font-size: var(--fnt-sz-base);
 }
 
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
 
-#root, #__next {
+#root {
   isolation: isolate;
+  height: 100%;
+}
+
+.material-symbols-outlined {
+  font-size: 20px;
 }
