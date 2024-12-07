@@ -11,10 +11,15 @@
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
 
+  --body-bg-color: #f9f9f9;
   --body-text-color: black;
   --color-primary: #277C64;
   --color-primary-light: #BDEADD;
-  --color-grey-light: #e3e3e3;
+  --color-grey-light: #eee;
+  --color-grey-medium-dark:#424242;
+
+  /* component color */
+  --calc-wrapper-bg-color:white;
 
   --fnt-sz-sm: .8rem;
   --fnt-sz-base: 1rem;
@@ -45,6 +50,7 @@
 body {
   line-height: 1.5;
   height: 100%;
+  background: var(--body-bg-color);
   color: var(--body-text-color);
   font-size: var(--fnt-sz-base);
 }
