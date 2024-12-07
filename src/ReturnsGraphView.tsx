@@ -201,30 +201,32 @@ export default function ReturnsGraphView() {
             // gridYValues={[0,10000, 20000,30000]}
             tooltip={(input) => {
                 return (
-                    <div className='custom-tooltip'>
-                        <div className='header'>
-                            <div className="font-semibold">{input.indexValue}</div>
-                            <div>15,000/m</div>
-                        </div>
-                        <div className='item'>
-                            <div className='label-wrapper'>
-                                <div className='label-indicator returns'></div>
-                                <div className='label'>Returns</div>
+                    <div style={{position:'relative',right:25}}>
+                        <div className='custom-tooltip'>
+                            <div className='header'>
+                                <div className="font-semibold">{input.indexValue}</div>
+                                <div>15,000/m</div>
                             </div>
-                            <div className='value'>7,73,845</div>
-                        </div>
-                        <div className='item'>
-                            <div className='label-wrapper'>
-                                <div className='label-indicator invested'></div>
-                                <div className='label'>Invested</div>
+                            <div className='item'>
+                                <div className='label-wrapper'>
+                                    <div className='label-indicator returns'></div>
+                                    <div className='label'>Returns</div>
+                                </div>
+                                <div className='value'>7,73,845</div>
                             </div>
-                            <div className='value'>2,95,041</div>
-                        </div>
-                        <div className='item'>
-                            <div className='label-wrapper'>
-                                <div className='label'>Total</div>
+                            <div className='item'>
+                                <div className='label-wrapper'>
+                                    <div className='label-indicator invested'></div>
+                                    <div className='label'>Invested</div>
+                                </div>
+                                <div className='value'>2,95,041</div>
                             </div>
-                            <div className='value font-semibold'>10,68,886</div>
+                            <div className='item'>
+                                <div className='label-wrapper'>
+                                    <div className='label'>Total</div>
+                                </div>
+                                <div className='value font-semibold'>10,68,886</div>
+                            </div>
                         </div>
                     </div>
                 )

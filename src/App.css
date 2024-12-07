@@ -1,3 +1,7 @@
+/* css debugger */
+/* * {
+  outline: 1px solid green;
+} */
 .main-wrapper {
   display: flex;
   align-items: center;
