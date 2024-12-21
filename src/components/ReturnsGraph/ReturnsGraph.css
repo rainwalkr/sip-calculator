@@ -1,0 +1,49 @@
+.returns-graph {
+    height: 340px;
+}
+
+.custom-tooltip {
+    background-color: rgba(255, 255, 255, .96);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    width: 150px;
+    height: 105px;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: var(--fnt-sz-sm);
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: .4rem;
+
+        .label-wrapper {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+
+            .label-indicator {
+                width: .7rem;
+                height: .7rem;
+                border-radius: .1rem;
+
+                &.returns {
+                    background-color: var(--color-primary);
+                }
+
+                &.invested {
+                    background-color: var(--color-primary-light);
+                }
+            }
+        }
+
+        .value {
+            font-size: var(--fnt-sz-sm);
+        }
+    }
+}

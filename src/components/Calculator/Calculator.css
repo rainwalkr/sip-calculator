@@ -1,0 +1,16 @@
+.calculator {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.divider {
+    padding: .5px;
+    background-color: var(--color-grey-light);
+  }
+
+@media screen and (max-width: 700px) {
+    .calculator {
+        flex-direction: column;
+    }
+}

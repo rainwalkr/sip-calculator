@@ -1,0 +1,9 @@
+.controls-wrapper {
+  flex-basis: 50%;
+}
+
+.actions {
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px dashed #D1D1D1;
+}

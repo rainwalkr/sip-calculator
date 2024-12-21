@@ -1,0 +1,25 @@
+.calculator-wrapper {
+    max-width: 1000px;
+    width: 100%;
+    padding: 2rem;
+    border-radius: .5rem;
+    background: var(--calc-wrapper-bg-color);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+    /* fix for graph tooltip scroll issue*/
+    overflow: clip;
+}
+
+.heading {
+    font-weight: var(--fnt-wght-semibold);
+
+    .highlight {
+        color: var(--color-primary);
+        /* font-weight: 900; */
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .calculator-wrapper {
+        padding: 1.5rem;
+    }
+}
