@@ -17,6 +17,7 @@
   --color-primary-light: #BDEADD;
   --color-grey-light: #eee;
   --color-grey-medium-dark:#424242;
+  --radio-btn-group-bg-color: #FAFAFA;
 
   /* component color */
   --calc-wrapper-bg-color:white;
@@ -26,6 +27,7 @@
   --fnt-sz-lg: 1.125rem;
   --fnt-sz-xl: 1.25rem;
 
+  --fnt-wght-medium: 500;
   --fnt-wght-semibold: 600;
 }
 

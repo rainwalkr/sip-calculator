@@ -1,8 +1,9 @@
 .btn-group {
     display: flex;
-    border: 1px solid var(--color-grey-light);
+    background: var(--radio-btn-group-bg-color);
     border-radius: 2rem;
     gap: .2rem;
+    position: relative;
 
     .btn {
         flex: 1;
@@ -11,16 +12,45 @@
         border-radius: 2rem;
         background: transparent;
         color: var(--color-grey-medium-dark);
+        z-index: 1;
         cursor: pointer;
+        font-weight: var(--fnt-wght-medium);
 
         &.active {
-            background: #3A277C !important;
             color: whitesmoke;
-            /* font-weight: var(--fnt-wght-semibold); */
+            /* delay should match .selection transition delay */
+            transition: .15s ease;
         }
 
-        &:hover {
-            background: #F4F2F2;
-        }
+    }
+
+    .btn.active~.selection {
+        background-color: var(--color-primary);
+        display: inline-block;
+    }
+
+    .selection {
+        display: none;
+        position: absolute;
+        height: 100%;
+        width: calc(100% / 3);
+        z-index: 0;
+        left: 0;
+        top: 0;
+        transition: .15s ease;
+        border-radius: 2rem;
+    }
+    
+    /* nth-child selectors can be removed if transform is done on js side */
+    .btn.active:nth-child(1)~.selection {
+        transform: translateX(calc(100% * 0));
+    }
+
+    .btn.active:nth-child(2)~.selection {
+        transform: translateX(calc(100% * 1));
+    }
+
+    .btn.active:nth-child(3)~.selection {
+        transform: translateX(calc(100% * 2));
     }
 }
