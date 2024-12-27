@@ -22,6 +22,11 @@
   /* component color */
   --calc-wrapper-bg-color:white;
 
+  --line-input-border-color:#eee;
+  --line-input-invalid-color:#F44336;
+  --line-input-notation-color:#999;
+  /* --------------- */
+
   --fnt-sz-sm: .8rem;
   --fnt-sz-base: 1rem;
   --fnt-sz-lg: 1.125rem;

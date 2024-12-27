@@ -52,46 +52,91 @@
     }
 }
 
-.increment-decrement-input {
-    max-width: 120px;
-    display: flex;
-    border: 1px solid gainsboro;
-    border-radius: .2rem;
+.line-input-container {
+    position: relative;
+    width: 100px;
 
-    .btn {
-        background: transparent;
+    .line-input {
+        width: 100%;
+        padding: 5px 5px 4px 5px;
         border: none;
-        width: 30px;
-        /* margin: 0 2px; */
+        border-bottom: 1px solid var(--line-input-border-color);
+        outline: none;
+        background-color: transparent;
+        transition: border-color 0.3s;
+        text-align: right;
+        font-weight: var(--fnt-wght-medium);
+
+        &:has(~.line-input-notation.left) {
+            padding-left: 25px;
+        }
+
+        &:has(~.line-input-notation.right) {
+            padding-right: 25px;
+        }
+
+        &:focus {
+            border-color: var(--color-primary);
+        }
+
+        &:invalid {
+            border-color: var(--line-input-invalid-color);
+
+            ~.line-input-notation {
+                color: var(--line-input-invalid-color);
+            }
+        }
+
+        /* for removing arrows */
+        /* Chrome, Safari, Edge, Opera */
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        &[type=number] {
+            -moz-appearance: textfield;
+        }
+
+    }
+
+    .line-input-underline {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        width: 100%;
+        background-color: var(--color-primary);
+        transform: scaleX(0);
+        transition: transform 0.3s;
+    }
+
+    .line-input:focus+.line-input-underline {
+        transform: scaleX(1);
+    }
+
+    .line-input-notation {
+        position: absolute;
+        top: 0;
+        color: var(--line-input-notation-color);
+        transition: color 0.3s;
+        height: 100%;
         display: flex;
         align-items: center;
-        justify-content: center;
 
-        &:hover {
-            background: whitesmoke;
-            cursor: pointer;
+        &.left {
+            left: 5px;
+        }
+
+        &.right {
+            right: 5px;
         }
     }
 
-    input {
-        width: 100%;
-        font-size: var(--fnt-sz-base);
-        padding: .2rem;
-        text-align: center;
-        border: none;
+    .line-input:focus~.line-input-notation {
+        color: var(--color-primary);
     }
 
-    /* for removing arrows */
-
-    /* Chrome, Safari, Edge, Opera */
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
-
-    /* Firefox */
-    input[type=number] {
-        -moz-appearance: textfield;
-    }
 }
