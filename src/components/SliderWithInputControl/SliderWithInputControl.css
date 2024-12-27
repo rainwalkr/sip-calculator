@@ -45,9 +45,9 @@
 
     @media screen and (max-width: 700px) {
         .rc-slider-handle {
-            width: 18px;
-            height: 18px;
-            margin-top: -7px;
+            width: 23px;
+            height: 23px;
+            margin-top: -10px;
         }
     }
 }
