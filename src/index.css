@@ -19,12 +19,13 @@
   --color-grey-medium-dark:#424242;
   --radio-btn-group-bg-color: #FAFAFA;
 
-  /* component color */
+  /* component variables */
   --calc-wrapper-bg-color:white;
 
   --line-input-border-color:#eee;
   --line-input-invalid-color:#F44336;
   --line-input-notation-color:#999;
+  --line-input-fnt-sz:1rem;
   /* --------------- */
 
   --fnt-sz-sm: .8rem;
