@@ -3,6 +3,7 @@ import 'rc-slider/assets/index.css';
 
 import './SliderWithInputControl.css'
 import { useState } from 'react';
+import { TrackTrappedHandle } from './TrackTrappedHandle';
 
 interface SliderWithInputControlProps {
     label: string
@@ -60,7 +61,7 @@ export default function SliderWithInputControl({
             </div>
         </div>
         <div className='range-input-wrapper'>
-            <Slider className="custom-slider" min={min} step={rangeStep ?? step} max={max} value={inputValue} onChange={handleSliderChange} />
+            <Slider className="custom-slider" min={min} step={rangeStep ?? step} max={max} value={inputValue} onChange={handleSliderChange} handleRender={TrackTrappedHandle} />
         </div>
     </div>
 }
