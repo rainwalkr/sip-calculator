@@ -1,24 +1,34 @@
+import { SHOW_WORD_NOTATION_LIMIT } from '../../configs/calculator'
+import { formatNumber } from '../Calculator/calculator.fns'
+import { CalculatorOperands } from '../Controls/Controls.types'
+import { Returns } from '../ReturnsSection/ReturnsSection.types'
 import './ReturnsText.css'
 
-export default function ReturnsText() {
+interface ReturnsTextProps {
+    returns: Returns,
+    operands: CalculatorOperands
+}
+
+export default function ReturnsText({ returns, operands }: ReturnsTextProps) {
+
     return <div className='returns-text'>
         <div className='total'>
-            <div className='label'>Estimated value in 25 years</div>
-            <div className='value'>10,68,886.53</div>
+            <div className='label'>Estimated value in {operands.timePeriodYear} {operands.timePeriodYear > 1 ? 'years' : 'year'}</div>
+            <div className='value'>{formatNumber(returns.totalAmount, returns.totalAmount > SHOW_WORD_NOTATION_LIMIT)}</div>
         </div>
         <div className='item'>
             <div className='label-wrapper'>
                 <div className='label-indicator returns'></div>
-                <div className='label'>Estimated returns at 12%</div>
+                <div className='label'>Estimated returns at {operands.returnRateAnnual}%</div>
             </div>
-            <div className='value'>7,73,845.35</div>
+            <div className='value'>{formatNumber(returns.totalReturns, returns.totalReturns > SHOW_WORD_NOTATION_LIMIT)}</div>
         </div>
         <div className='item'>
             <div className='label-wrapper'>
                 <div className='label-indicator invested'></div>
                 <div className='label'>Invested value</div>
             </div>
-            <div className='value'>2,95,041.18</div>
+            <div className='value'>{formatNumber(returns.totalInvested)}</div>
         </div>
     </div>
 }

@@ -8,13 +8,15 @@ interface Button {
 interface RadioButtonGroupProps {
     buttons: Button[]
     selected: number
+    change: (key: number) => void
 }
 
-export default function RadioButtonGroup({ buttons, selected }: RadioButtonGroupProps) {
+export default function RadioButtonGroup({ buttons, selected, change }: RadioButtonGroupProps) {
     let [selectedKey, setSelectedKey] = useState(selected);
 
     function handleBtnClick(key: number) {
         setSelectedKey(key)
+        change(key)
         if ('vibrate' in navigator) {
             navigator.vibrate(5)
         }

@@ -3,7 +3,8 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin: 1.2rem 0;
+        flex-direction: column;
+        margin: 0 0 1rem 0;
 
         .label {
             font-size: var(--fnt-sz-xl);
@@ -11,7 +12,7 @@
         }
 
         .value {
-            font-size: var(--fnt-sz-xl);
+            font-size: 2rem;
             font-weight: var(--fnt-wght-semibold);
             color: var(--color-primary);
         }
