@@ -5,7 +5,7 @@
 }
 
 .range-input-wrapper {
-    margin: 1rem 0;
+    margin: .6rem 0;
 }
 
 .range-input-wrapper .range-input {
@@ -16,7 +16,7 @@
     margin-top: 2.5rem;
 }
 
-.custom-slider {
+/* .custom-slider {
     .rc-slider-track {
         background-color: var(--color-primary);
     }
@@ -51,7 +51,7 @@
             margin-top: -11px;
         }
     }
-}
+} */
 
 .line-input-container {
     position: relative;
@@ -123,6 +123,7 @@
         position: absolute;
         top: 0;
         color: var(--line-input-notation-color);
+        font-size: var(--line-input-fnt-sz);
         transition: color 0.3s;
         height: 100%;
         display: flex;
@@ -139,6 +140,18 @@
 
     .line-input:focus~.line-input-notation {
         color: var(--color-primary);
+    }
+
+    @media screen and (max-width: 700px) {
+        .line-input-notation {
+            &.left {
+                left: 3px;
+            }
+    
+            &.right {
+                right: 3px;
+            }
+        }
     }
 
 }

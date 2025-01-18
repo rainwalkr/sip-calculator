@@ -4,7 +4,7 @@
         align-items: center;
         justify-content: space-between;
         flex-direction: column;
-        margin: 0 0 1rem 0;
+        margin-bottom: 1rem;
 
         .label {
             font-size: var(--fnt-sz-xl);
@@ -15,6 +15,12 @@
             font-size: 2rem;
             font-weight: var(--fnt-wght-semibold);
             color: var(--color-primary);
+        }
+    }
+
+    @media screen and (max-width: 700px) {
+        .total {
+            margin-bottom: 2rem;
         }
     }
 

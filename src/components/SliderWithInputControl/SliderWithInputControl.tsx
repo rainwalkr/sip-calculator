@@ -1,9 +1,10 @@
-import Slider from 'rc-slider'
+// import Slider from 'rc-slider'
 import 'rc-slider/assets/index.css';
 
 import './SliderWithInputControl.css'
 import { useState } from 'react';
-import { TrackTrappedHandle } from './TrackTrappedHandle';
+// import { TrackTrappedHandle } from './TrackTrappedHandle';
+import { Slider } from '../Slider/Slider';
 
 interface SliderWithInputControlProps {
     label: string
@@ -61,7 +62,8 @@ export default function SliderWithInputControl({
             </div>
         </div>
         <div className='range-input-wrapper'>
-            <Slider className="custom-slider" min={min} step={rangeStep ?? step} max={max} value={inputValue} onChange={handleSliderChange} handleRender={TrackTrappedHandle} />
+            {/* <Slider className="custom-slider" min={min} step={rangeStep ?? step} max={max} value={inputValue} onChange={handleSliderChange} handleRender={TrackTrappedHandle} /> */}
+            <Slider min={min} step={rangeStep ?? step} max={max} value={inputValue} isDecimalValue={isDecimalValue} onChange={handleSliderChange} />
         </div>
     </div>
 }
