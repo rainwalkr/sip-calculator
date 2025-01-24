@@ -5,7 +5,7 @@
 }
 
 .range-input-wrapper {
-    margin: .6rem 0;
+    margin: .8rem 0 0 0;
 }
 
 .range-input-wrapper .range-input {
@@ -59,7 +59,6 @@
 
     .line-input {
         width: 100%;
-        padding: 5px 5px 4px 5px;
         border: none;
         border-bottom: 1px solid var(--line-input-border-color);
         outline: none;
@@ -122,6 +121,7 @@
     .line-input-notation {
         position: absolute;
         top: 0;
+        padding-bottom: 1px;
         color: var(--line-input-notation-color);
         font-size: var(--line-input-fnt-sz);
         transition: color 0.3s;

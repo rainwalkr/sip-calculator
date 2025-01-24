@@ -14,7 +14,7 @@
         color: var(--color-grey-medium-dark);
         z-index: 1;
         cursor: pointer;
-        font-weight: var(--fnt-wght-medium);
+        font-weight: var(--fnt-wght-semibold);
 
         &.active {
             color: whitesmoke;
