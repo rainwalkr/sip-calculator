@@ -2,85 +2,22 @@ import { ResponsiveBar } from "@nivo/bar";
 
 import './ReturnsGraph.css'
 import "../../utilities.css";
+import { CalculatorOperands } from "../Controls/Controls.types";
+import { formatNumber, getReturnsByYear } from "../Calculator/calculator.fns";
+import { GRAPH_TOOLTIP_NUM_FORMAT_LIMIT } from "../../configs/calculator";
+import { memo } from "react";
 
-export default function ReturnsGraph() {
-    let data = [
-        {
-            "year": "1Yr",
-            "invested": 3000,
-            "returns": 202.33,
-        },
-        {
-            "year": "2Yr",
-            "invested": 6300,
-            "returns": 831.03,
-        },
-        {
-            "year": "3Yr",
-            "invested": 9930,
-            "returns": 1980.25,
-        },
-        {
-            "year": "4Yr",
-            "invested": 13923,
-            "returns": 3760.07,
-        },
-        {
-            "year": "5Yr",
-            "invested": 18315.3,
-            "returns": 6298.96,
-        },
-        {
-            "year": "6Yr",
-            "invested": 23146.83,
-            "returns": 9746.52,
-        },
-        {
-            "year": "7Yr",
-            "invested": 6300,
-            "returns": 831.03,
-        },
-        // {
-        //   "year": "8Yr",
-        //   "invested": 6300,
-        //   "returns": 831.03,
-        // },
-        // {
-        //   "year": "9Yr",
-        //   "invested": 6300,
-        //   "returns": 831.03,
-        // },
-        // {
-        //   "year": "10Yr",
-        //   "invested": 6300,
-        //   "returns": 831.03,
-        // },
-        // {
-        //   "year": "11Yr",
-        //   "invested": 6300,
-        //   "returns": 831.03,
-        // },
-        // {
-        //   "year": "12Yr",
-        //   "invested": 6300,
-        //   "returns": 831.03,
-        // },
-        // {
-        //   "year": "13Yr",
-        //   "invested": 6300,
-        //   "returns": 831.03,
-        // },
-        // {
-        //   "year": "14Yr",
-        //   "invested": 6300,
-        //   "returns": 831.03,
-        // },
-        // {
-        //   "year": "15Yr",
-        //   "invested": 6300,
-        //   "returns": 831.03,
-        // },
-    ]
+interface ReturnsGraphProps {
+    operands: CalculatorOperands
+}
+/**
+ * memo was used for skipping re-rendering when operands remain unchanged
+ * if user is dragging the slider continuously, then operands will remain unchanged. because of the throttling.
+ */
+export default memo(function ReturnsGraph({ operands }: ReturnsGraphProps) {
+
+    let data = getReturnsByYear(operands);
+
     return <div className='returns-graph'>
         <ResponsiveBar
             data={data}
@@ -115,20 +52,20 @@ export default function ReturnsGraph() {
                     spacing: 10
                 }
             ]}
-            fill={[
-                {
-                    match: {
-                        id: 'fries'
-                    },
-                    id: 'dots'
-                },
-                {
-                    match: {
-                        id: 'sandwich'
-                    },
-                    id: 'lines'
-                }
-            ]}
+            // fill={[
+            //     {
+            //         match: {
+            //             id: 'fries'
+            //         },
+            //         id: 'dots'
+            //     },
+            //     {
+            //         match: {
+            //             id: 'sandwich'
+            //         },
+            //         id: 'lines'
+            //     }
+            // ]}
             borderColor={{
                 from: 'color',
                 modifiers: [
@@ -147,7 +84,8 @@ export default function ReturnsGraph() {
                 legend: '',
                 legendPosition: 'middle',
                 legendOffset: 32,
-                truncateTickAt: 0
+                truncateTickAt: 0,
+                format:(value) => value + 'Y'
             }}
             axisLeft={{
                 tickSize: 5,
@@ -157,7 +95,8 @@ export default function ReturnsGraph() {
                 legendPosition: 'middle',
                 legendOffset: -40,
                 truncateTickAt: 0,
-                // tickValues:4
+                tickValues:4,
+                format:(value) => formatNumber(value,true)
             }}
             enableLabel={false}
             labelSkipWidth={12}
@@ -196,36 +135,41 @@ export default function ReturnsGraph() {
             //     }
             // ]}
             role="application"
-            ariaLabel="Nivo bar chart demo"
+            ariaLabel="Returns Graph"
             barAriaLabel={e => e.id + ": " + e.formattedValue + " in country: " + e.indexValue}
-            // gridYValues={[0,10000, 20000,30000]}
+            // gridYValues={[0,60000]}
             tooltip={(input) => {
+                const isLastBar = data.length > 1 && (data.length - 1) === input.index;
+                const showWordNotationForReturns = input.data.returns > GRAPH_TOOLTIP_NUM_FORMAT_LIMIT;
+                const showWordNotationForInvested = input.data.invested > GRAPH_TOOLTIP_NUM_FORMAT_LIMIT;
+                const showWordNotationForTotal = input.data.total > GRAPH_TOOLTIP_NUM_FORMAT_LIMIT;
                 return (
-                    <div style={{ position: 'relative', right: 25 }}>
+                    <div style={isLastBar ? { position: 'relative', right: 40 } : {}}>
                         <div className='custom-tooltip'>
                             <div className='header'>
-                                <div className="font-semibold">{input.indexValue}</div>
-                                <div>15,000/m</div>
+                                <div className="font-semibold">{input.indexValue}Yr</div>
+                                {/* <div>15,000/m</div> */}
                             </div>
                             <div className='item'>
                                 <div className='label-wrapper'>
                                     <div className='label-indicator returns'></div>
                                     <div className='label'>Returns</div>
                                 </div>
-                                <div className='value'>7,73,845</div>
+                                <div className='value'>{formatNumber(input.data.returns, showWordNotationForReturns, showWordNotationForReturns ? 2 : 0)}</div>
                             </div>
                             <div className='item'>
                                 <div className='label-wrapper'>
                                     <div className='label-indicator invested'></div>
                                     <div className='label'>Invested</div>
                                 </div>
-                                <div className='value'>2,95,041</div>
+                                <div className='value'>{formatNumber(input.data.invested, showWordNotationForInvested, showWordNotationForInvested ? 2 : 0)}</div>
                             </div>
-                            <div className='item'>
+                            <div className="line"></div>
+                            <div className='item total'>
                                 <div className='label-wrapper'>
                                     <div className='label'>Total</div>
                                 </div>
-                                <div className='value font-semibold'>10,68,886</div>
+                                <div className='value font-semibold'>{formatNumber(input.data.total, showWordNotationForTotal, showWordNotationForTotal ? 2 : 0)}</div>
                             </div>
                         </div>
                     </div>
@@ -233,4 +177,4 @@ export default function ReturnsGraph() {
             }}
         />
     </div>
-}
+})

@@ -11,10 +11,10 @@
         border: none;
         border-radius: 2rem;
         background: transparent;
-        color: var(--color-grey-medium-dark);
+        color: var(--color-grey-dark);
         z-index: 1;
         cursor: pointer;
-        font-weight: var(--fnt-wght-semibold);
+        font-weight: var(--fnt-wght-medium);
 
         &.active {
             color: whitesmoke;

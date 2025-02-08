@@ -3,11 +3,10 @@
 }
 
 .custom-tooltip {
-    background-color: rgba(255, 255, 255, .96);
+    background-color: rgba(255, 255, 255, 1);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-    width: 150px;
-    height: 105px;
-    padding: 5px;
+    width: 165px;
+    padding: 7px;
     border-radius: 3px;
     font-size: var(--fnt-sz-sm);
 
@@ -25,7 +24,7 @@
         .label-wrapper {
             display: flex;
             align-items: center;
-            gap: .5rem;
+            gap: .3rem;
 
             .label-indicator {
                 width: .7rem;
@@ -45,5 +44,15 @@
         .value {
             font-size: var(--fnt-sz-sm);
         }
+
+        &.total{
+            margin-top: unset;
+        }
+    }
+
+    .line{
+        margin-top: .3rem;
+        margin-bottom: .2rem;
+        border-bottom: .1rem solid #eee;
     }
 }

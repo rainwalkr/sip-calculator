@@ -5,8 +5,6 @@
     border-radius: .5rem;
     background: var(--calc-wrapper-bg-color);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
-    /* fix for graph tooltip scroll issue*/
-    overflow: clip;
 }
 
 .heading {
@@ -21,5 +19,7 @@
 @media screen and (max-width: 700px) {
     .calculator-wrapper {
         padding: 1.1rem;
+        /* fix for graph tooltip scroll issue*/
+        overflow: clip;
     }
 }

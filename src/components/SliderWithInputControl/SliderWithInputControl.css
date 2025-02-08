@@ -5,7 +5,7 @@
 }
 
 .range-input-wrapper {
-    margin: .8rem 0 0 0;
+    margin: 1rem 0 0 0;
 }
 
 .range-input-wrapper .range-input {
@@ -55,7 +55,7 @@
 
 .line-input-container {
     position: relative;
-    width: 100px;
+    width: 105px;
 
     .line-input {
         width: 100%;
@@ -143,6 +143,10 @@
     }
 
     @media screen and (max-width: 700px) {
+        &{
+            width: 110px;
+        }
+
         .line-input-notation {
             &.left {
                 left: 3px;
