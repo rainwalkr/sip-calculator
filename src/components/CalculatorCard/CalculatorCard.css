@@ -7,6 +7,10 @@
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
 }
 
+.heading-wrapper{
+    margin-bottom: 1.5rem;
+}
+
 .heading {
     font-weight: var(--fnt-wght-semibold);
 

@@ -1,9 +1,107 @@
 .controls-wrapper {
   flex-basis: 50%;
+  min-width: 0;
 }
 
 .actions {
-  padding: 2rem;
-  margin-bottom: 2.5rem;
-  border-bottom: 1px dashed #D1D1D1;
+  margin:1.5rem 0;
+  gap: 1rem;
+  display: flex;
+  justify-content: left;
+  .action-btn{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+    &:hover{
+      background: #E0E0E0;
+    }
+  }
+}
+
+.presets{
+  display: flex;
+  gap: .5rem;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  .item{
+    cursor: pointer;
+    width: 145px;
+    height: 70px;
+    background: #F5F5F5;
+    padding: 0.5rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-shrink: 0;
+    transition: .2s ease-in-out;
+    &:hover{
+      background: #f0f0f0;
+    }
+    .footer{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .mode-badge{
+        font-size: .7rem;
+        background: var(--color-primary);
+        color: white;
+        padding: 0 .4rem;
+        border-radius: 10px;
+      }
+      .trash{
+        font-size: 19px;
+        color: var(--preset-item-trash-color);
+        line-height: 0;
+        transition: .2s ease-in-out;
+        &:hover{
+          color: var(--preset-item-trash-hover-color);
+        }
+      }
+    }
+
+    &.custom{
+      background: var(--preset-custom-item-bg-color);
+      &:hover{
+        background: var(--preset-custom-item-hover-bg-color);
+      }
+    }
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.presets-wrapper{
+  position: relative;
+  .scroll-indicator{
+    top: 0;
+    position: absolute;
+    width: 30px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    
+    &.left{
+      left: 0;
+      background-image: linear-gradient(to left, rgba(255, 0, 0, 0), #fff);
+      justify-content: left;
+    }
+    &.right{
+      right: 0;
+      background-image: linear-gradient(to right, rgba(255, 0, 0, 0), #fff);
+      justify-content: right;
+    }
+  }
+}
+
+.controls-footer{
+  margin-bottom: 1rem;
 }

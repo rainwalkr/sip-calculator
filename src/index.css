@@ -30,6 +30,11 @@
 
   --slider-track-bg-color:#e9e9e9;
   --slider-thumb-color:white;
+
+  --preset-custom-item-bg-color:aliceblue;
+  --preset-custom-item-hover-bg-color:#e6f3ff;
+  --preset-item-trash-color:#757575;
+  --preset-item-trash-hover-color:indianred;
   /* --------------- */
 
   --fnt-sz-sm: .8rem;
@@ -100,6 +105,6 @@ h6 {
   height: 100%;
 }
 
-.material-symbols-outlined {
+.material-symbols-rounded {
   font-size: 20px;
 }

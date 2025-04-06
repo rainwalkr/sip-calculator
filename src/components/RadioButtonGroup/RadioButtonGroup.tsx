@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './RadioButtonGroup.css'
 
 interface Button {
@@ -13,6 +13,10 @@ interface RadioButtonGroupProps {
 
 export default function RadioButtonGroup({ buttons, selected, change }: RadioButtonGroupProps) {
     let [selectedKey, setSelectedKey] = useState(selected);
+
+    useEffect(() => {
+        setSelectedKey(selected)
+    },[selected]);
 
     function handleBtnClick(key: number) {
         setSelectedKey(key)

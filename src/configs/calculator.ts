@@ -12,6 +12,12 @@ export const modes = [
     { key: STEPSIP_KEY, label: STEPSIP_LABEL },
 ]
 
+export const modesMap =  new Map([
+    [SIP_KEY, SIP_LABEL],
+    [LUMPSUM_KEY, LUMPSUM_LABEL],
+    [STEPSIP_KEY, STEPSIP_LABEL],
+]);
+
 export const defaultMode = SIP_KEY;
 
 export const SIP_INVESTMENT_MIN = 500;

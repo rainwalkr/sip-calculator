@@ -1,5 +1,5 @@
 .returns-graph {
-    height: 340px;
+    height: 370px;
 }
 
 .custom-tooltip {
@@ -7,7 +7,7 @@
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
     width: 165px;
     padding: 7px;
-    border-radius: 3px;
+    border-radius: 5px;
     font-size: var(--fnt-sz-sm);
 
     .header {
@@ -19,7 +19,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-top: .4rem;
+        margin-top: .3rem;
 
         .label-wrapper {
             display: flex;
@@ -46,13 +46,7 @@
         }
 
         &.total{
-            margin-top: unset;
+            margin-top: .3rem;
         }
-    }
-
-    .line{
-        margin-top: .3rem;
-        margin-bottom: .2rem;
-        border-bottom: .1rem solid #eee;
     }
 }

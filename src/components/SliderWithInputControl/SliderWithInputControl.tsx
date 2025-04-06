@@ -2,7 +2,7 @@
 import 'rc-slider/assets/index.css';
 
 import './SliderWithInputControl.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 // import { TrackTrappedHandle } from './TrackTrappedHandle';
 import { Slider } from '../Slider/Slider';
 
@@ -33,8 +33,12 @@ export default function SliderWithInputControl({
     isDecimalValue = false,
     change
 }: SliderWithInputControlProps) {
-
+    
     let [inputValue, setInputValue] = useState(value)
+
+    useEffect(() => {
+        setInputValue(value)
+    },[value]);
 
     function handleSliderChange(val: any) {
         setInputValue(val)

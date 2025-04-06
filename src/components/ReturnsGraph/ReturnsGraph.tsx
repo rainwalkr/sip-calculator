@@ -164,7 +164,6 @@ export default memo(function ReturnsGraph({ operands }: ReturnsGraphProps) {
                                 </div>
                                 <div className='value'>{formatNumber(input.data.invested, showWordNotationForInvested, showWordNotationForInvested ? 2 : 0)}</div>
                             </div>
-                            <div className="line"></div>
                             <div className='item total'>
                                 <div className='label-wrapper'>
                                     <div className='label'>Total</div>
