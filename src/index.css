@@ -23,6 +23,8 @@
   /* component variables */
   --calc-wrapper-bg-color:white;
 
+  --radio-btn-group-fnt-sz:1rem;
+
   --line-input-border-color:#eee;
   --line-input-invalid-color:#F44336;
   --line-input-notation-color:#999;
@@ -35,6 +37,7 @@
   --preset-custom-item-hover-bg-color:#e6f3ff;
   --preset-item-trash-color:#757575;
   --preset-item-trash-hover-color:indianred;
+  --preset-item-label-fnt-sz:1rem;
   /* --------------- */
 
   --fnt-sz-sm: .8rem;
