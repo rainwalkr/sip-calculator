@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { INVESTMENT_PERIOD_MAX, INVESTMENT_PERIOD_MIN, LUMPSUM_INVESTMENT_MAX, LUMPSUM_INVESTMENT_MIN, LUMPSUM_KEY, modes, modesMap, RETURNS_MAX, RETURNS_MIN, SIP_INVESTMENT_MAX, SIP_INVESTMENT_MIN, SIP_INVESTMENT_STEP, SIP_KEY, STEPSIP_KEY } from '../../configs/calculator'
+import { INVESTMENT_PERIOD_MAX, INVESTMENT_PERIOD_MIN, LUMPSUM_INVESTMENT_MAX, LUMPSUM_INVESTMENT_MIN, LUMPSUM_KEY, modes, modesMap, RETURNS_MAX, RETURNS_MIN, SIP_INVESTMENT_MAX, SIP_INVESTMENT_MIN, SIP_INVESTMENT_STEP, SIP_KEY } from '../../configs/calculator'
 import RadioButtonGroup from '../RadioButtonGroup/RadioButtonGroup'
 import SliderWithInputControl from '../SliderWithInputControl/SliderWithInputControl'
 import './Controls.css'
