@@ -113,4 +113,11 @@
       height: 80px;
     }
   }
+
+  .actions {
+    .action-btn{
+      width: 45px;
+      height: 45px;
+    }
+  }
 }

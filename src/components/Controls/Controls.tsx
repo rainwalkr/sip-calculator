@@ -5,6 +5,7 @@ import SliderWithInputControl from '../SliderWithInputControl/SliderWithInputCon
 import './Controls.css'
 import { CalculatorOperands } from './Controls.types'
 import { MAX_CUSTOM_PRESET, PRESET_TYPE_CUSTOM } from '../../configs/preset'
+import { toast } from 'sonner'
 
 interface ControlsProps {
     value: CalculatorOperands
@@ -42,6 +43,12 @@ export default function Controls({ value,presetService,change }: ControlsProps) 
         })
     }
 
+    function makeHapticFeedback(){
+        if ('vibrate' in navigator) {
+            navigator.vibrate(5)
+        }
+    }
+
 
     function handlePresetClick(preset:any) {
         // skip if current operands match preset
@@ -60,25 +67,41 @@ export default function Controls({ value,presetService,change }: ControlsProps) 
         setCalculatorOperands(newCalculatorOperands)
         change(newCalculatorOperands)
         presetService.recordPresetAppliedTime(preset._id)
+        makeHapticFeedback()
     }
 
     function bookmark(){
-        let result = presetService.save(calculatorOperands)
+        // custom preset cap validation
         if (presets.length === MAX_CUSTOM_PRESET + 2) {
+            toast.info('No further bookmarks can be created')
             return;
         }
-        if (result.status) {
-            setPresets([...presetService.get()])
+        let result = presetService.save(calculatorOperands)
+        if (!result.status) {
+            toast.info('Already Bookmarked')
+            return;
         }
+        setPresets([...presetService.get()])
+        toast.success('Successfully Bookmarked')
+        makeHapticFeedback()
     }
 
     function deletePreset(event:any,id:string) {
         event?.stopPropagation();
-        let result = presetService.remove(id);
-        if (result.status) {
-            // TODO: modify preset sate value directly instead of fetching from service
-            setPresets([...presetService.get()])
-        }
+        toast('Delete this bookmark?', {
+            className:'delete',
+            action: {
+                label: 'Yes',
+                onClick: () => {
+                    let result = presetService.remove(id);
+                    if (result.status) {
+                        // TODO: modify preset sate value directly instead of fetching from service
+                        setPresets([...presetService.get()])
+                        toast.success('Bookmark Removed')
+                    }
+                }
+            },
+        })        
     }
 
     return <div className='controls-wrapper'>
