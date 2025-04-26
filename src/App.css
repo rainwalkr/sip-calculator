@@ -16,22 +16,18 @@
   
   &[data-type=success] {
     [data-icon]{
-      height: 20px;
-      width: 20px;
-      color: green;
+      width: 24px;
     }
   }
 
   &[data-type=info] {
     [data-icon]{
-      height: 20px;
-      width: 20px;
-      color: dodgerblue;
+      width: 24px;
     }
   }
 
   &.delete{
-    [data-button] {
+    button[data-button] {
       font-size: 14px;
       background-color: var(--preset-item-trash-hover-color);
     }
